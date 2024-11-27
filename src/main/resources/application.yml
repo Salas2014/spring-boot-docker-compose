@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spring-boot-sandbox
+  sql:
+    init:
+      mode: never
+  docker:
+    compose:
+      enabled: true
+      profiles:
+        active: postgres2
+      lifecycle-management: start_and_stop
+      start:
+        log-level: info
+        command: up
+      stop:
+        timeout: 10s
+        command: stop
+      readiness:
+        timeout: 2m
+        tcp:
+          connect-timeout: 200ms
+          read-timeout: 200ms
+        wait: never

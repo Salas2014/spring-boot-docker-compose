@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=sandboxdb'
+      - 'POSTGRES_PASSWORD=sandbox_name'
+      - 'POSTGRES_USER=sandbox_password'
+    profiles:
+      - postgres1
+    ports:
+      - '5432'
+
+  postgres2:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=sandboxdb'
+      - 'POSTGRES_PASSWORD=sandbox_name'
+      - 'POSTGRES_USER=sandbox_password'
+    profiles:
+      - postgres2
+    ports:
+      - '5432'
+
